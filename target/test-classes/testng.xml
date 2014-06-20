@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="firstTestSuite" verbose="1" >
+    <parameter name="a1" value="2"/>
+     <parameter name="a2" value="6"/>
+      <parameter name="a3" value="9"/>
+       <parameter name="a4" value="8"/>
+        <parameter name="a5" value="7"/>
+    <test name="SmokeTest">
+        <classes>
+            <class name="testPackage.TestCheckSort" />
+        </classes>
+    </test>
+</suite>

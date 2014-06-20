@@ -35,11 +35,11 @@ public class TestCheckSort {
 //		System.out.print(arr[i]);
 //		}
 		
-//		System.out.println();
+		System.out.println();
 		Arrays.sort(arr2);
-//		for(int i=0;i<=arr.length-1;i++){
-//			System.out.print(arr2[i]);
-//			}
+		for(int i=0;i<=arr.length-1;i++){
+			System.out.print(arr2[i]);
+			}
 		System.out.println();
 		Assert.assertEquals(arr,arr2);
 	}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite hostname="WIN-C6M3PA3VFT9" name="testPackage.TestCheckSort" tests="1" failures="0" timestamp="20 Jun 2014 17:38:12 GMT" time="0.023" errors="0">
+  <testcase name="sort" time="0.012" classname="testPackage.TestCheckSort"/>
+</testsuite>

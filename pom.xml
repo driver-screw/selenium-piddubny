@@ -16,7 +16,7 @@
         <configuration>
             <archive>
                 <manifest>
-                    <mainClass>core.Kvadratnoe_UR</mainClass>
+                    <mainClass>C:\Selenium\selenium-piddubny\src\test\java\testPackage\TestCheckSort.java</mainClass>
                 </manifest>
             </archive>
         </configuration>

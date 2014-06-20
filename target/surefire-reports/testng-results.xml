@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="firstTestSuite" duration-ms="23" started-at="2014-06-20T20:38:12Z" finished-at="2014-06-20T20:38:12Z">
+    <groups>
+    </groups>
+    <test name="SmokeTest" duration-ms="23" started-at="2014-06-20T20:38:12Z" finished-at="2014-06-20T20:38:12Z">
+      <class name="testPackage.TestCheckSort">
+        <test-method status="PASS" signature="sort(int, int, int, int, int)" name="sort" duration-ms="12" started-at="2014-06-20T20:38:12Z" finished-at="2014-06-20T20:38:12Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[6]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[9]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[8]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[7]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+      </class>
+    </test>
+  </suite>
+</testng-results>

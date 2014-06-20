@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [firstTestSuite]">
+  <parameter name="a1" value="2"/>
+  <parameter name="a2" value="6"/>
+  <parameter name="a3" value="9"/>
+  <parameter name="a4" value="8"/>
+  <parameter name="a5" value="7"/>
+  <test name="SmokeTest(failed)" preserve-order="false">
+    <parameter name="a1" value="2"/>
+    <parameter name="a2" value="6"/>
+    <parameter name="a3" value="9"/>
+    <parameter name="a4" value="8"/>
+    <parameter name="a5" value="7"/>
+    <classes>
+      <class name="testPackage.TestCheckSort">
+        <methods>
+          <include name="sort" invocation-numbers="0"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+</suite>
