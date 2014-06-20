@@ -16,7 +16,7 @@
         <configuration>
             <archive>
                 <manifest>
-                    <mainClass>C:\Selenium\selenium-piddubny\src\test\java\testPackage\TestCheckSort.java</mainClass>
+                    <mainClass>C:\Selenium\selenium-piddubny\src\test\java\testPackage\Passed.java</mainClass>
                 </manifest>
             </archive>
         </configuration>
