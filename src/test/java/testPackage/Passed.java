@@ -14,6 +14,6 @@ public class Passed {
    @Test
     public void passed(){
 
-        Assert.assertEquals(true,true);
+        Assert.assertEquals(1,1);
     }
 }
