@@ -12,7 +12,7 @@ public class ten_chars {
     public Object[][] createData1() {
         return new Object[][] {
                 { "Ten_chars." },
-                { "AnotherTe"},
+                { "AnotherTen"},
                 {"OneAnother"},
         };
     }
