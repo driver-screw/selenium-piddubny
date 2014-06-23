@@ -8,7 +8,7 @@
         <parameter name="a5" value="7"/>
     <test name="SmokeTest">
         <classes>
-            <class name="testPackage.Passed" />
+            <class name="testPackage.Buy_Smart" />
         </classes>
     </test>
 </suite>
