@@ -2,8 +2,12 @@ package testPackage;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -25,18 +29,51 @@ public class Buy_Smart {
         driver.get("http://rozetka.com.ua/");
        String text=  driver.findElement(By.className("m-cart-empty")).getText() ;
         Assert.assertEquals("Корзина пуста",text);
-
+    //    Assert.assertEquals(driver.findElement( driver.findElement(By.className("m-cart-empty")).isDisplayed(),true);
 
         Actions builder = new Actions(driver);
         builder.moveToElement(driver.findElement(By.id("phones-mp3-gps")));
     //    builder.click(driver.findElement(By.partialLinkText("smartphones")));
           builder.perform();
-         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+       //WebElement down_menu =(new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"phones-mp3-gps\"]/div/div/ol/li[1]/ul[1]/li[1]/a")));
+      //  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"phones-mp3-gps\"]/div/div/ol/li[1]/ul[1]/li[1]/a")));
+      //until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"phones-mp3-gps\"]/div/div/ol/li[1]/ul[1]/li[1]/a")));
+
+        WebElement smarts = (new WebDriverWait(driver, 20))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"phones-mp3-gps\"]/div/div/ol/li[1]/ul[1]/li[1]/a")));
+
         driver.findElement(By.xpath("//*[@id=\"phones-mp3-gps\"]/div/div/ol/li[1]/ul[1]/li[1]/a")).click();
+
+        WebElement sort_all = (new WebDriverWait(driver, 20))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.className("m-cat-subl-i-link")));
+
         driver.findElement(By.className("m-cat-subl-i-link")).click();
-        driver.findElement(By.className("xhr lightblue sprite dropdown")).click();
-        driver.findElement(By.xpath("//*[@id=\"sort_view\"]/div/div/ul/li[1]/a")).click();
-       // driver.quit();
+
+        WebElement sort = (new WebDriverWait(driver, 20))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/div[3]/div/div[1]/div[2]/div/div[3]/div[1]/a")));
+
+        driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[1]/div[2]/div/div[3]/div[1]/a")).click();
+
+        WebElement cheap_sort = (new WebDriverWait(driver, 20))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/div[3]/div/div[1]/div[2]/div/div[3]/div[1]/div/div/ul/li[1]/a")));
+
+        driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[1]/div[2]/div/div[3]/div[1]/div/div/ul/li[1]/a")).click();
+
+        // Купить кнопка /html/body/div[1]/div[3]/div/div[1]/div[2]/div/div[4]/div[1]/div[1]/div[1]/div[1]/div/div/div[3]/div[2]/div/form/button
+        WebElement buy_the_cheapest = (new WebDriverWait(driver, 20))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/div[3]/div/div[1]/div[2]/div/div[4]/div[1]/div[1]/div[1]/div[1]/div/div/div[3]/div[2]/div/form/button")));
+
+        driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[1]/div[2]/div/div[4]/div[1]/div[1]/div[1]/div[1]/div/div/div[3]/div[2]/div/form/button")).click();
+
+
+// Корзина. ищем к-во тавара. /html/body/div[1]/div/div/div/div[1]/div[2]/div/div[4]/input
+        WebElement find_qt_pole = (new WebDriverWait(driver, 20))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/div/div/div/div[1]/div[2]/div/div[4]/input")));
+
+        String text2=  driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[1]/div[2]/div/div[4]/input")).getAttribute("value") ;
+        Assert.assertEquals("1",text2);
+
+        // driver.quit();
     }
 
 
