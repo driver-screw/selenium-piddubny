@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
@@ -21,13 +22,25 @@ import java.util.concurrent.TimeUnit;
  * To change this template use File | Settings | File Templates.
  */
 public class Buy_Smart {
+      public static WebDriver driver= new FirefoxDriver();
+
+   @BeforeSuite
+   public void Before(){
+
+
+       driver.get("http://rozetka.com.ua/");
+       driver.manage().window().maximize();
+   }
+
 
     @Test
         public void buy_cheap_smart(){
 
-          WebDriver driver = new FirefoxDriver();
-        driver.get("http://rozetka.com.ua/");
-       String text=  driver.findElement(By.className("m-cart-empty")).getText() ;
+        WebElement trash = (new WebDriverWait(driver, 20))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.className("m-cart-empty")));
+
+
+        String text=  driver.findElement(By.className("m-cart-empty")).getText() ;
         Assert.assertEquals("Корзина пуста",text);
     //    Assert.assertEquals(driver.findElement( driver.findElement(By.className("m-cart-empty")).isDisplayed(),true);
 
