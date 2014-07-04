@@ -20,18 +20,20 @@ import java.util.concurrent.TimeUnit;
 
 public class SetEnv {
 
-    public static WebDriver driver= new FirefoxDriver();
+    public static WebDriver driver;
 
     @BeforeSuite
     public void Before(){
-        driver.get("http://rozetka.com.ua/");
+        driver = new FirefoxDriver();
+       // driver.get("http://rozetka.com.ua/");
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+     //   driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
     }
 
     @AfterSuite
         public void After(){
-
-      //  driver.quit();
+        if (driver!=null){
+        driver.quit();
+     }
     }
 }

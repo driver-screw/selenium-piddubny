@@ -2,6 +2,8 @@ package testPackage;
 
 
 import org.apache.http.util.Asserts;
+//import java.lang.String;
+//import org.apache.xpath.operations.String;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +17,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
-import org.webbitserver.helpers.UTF8Output;
+//import org.webbitserver.helpers.UTF8Output;
 
 import java.util.concurrent.TimeUnit;
 
@@ -26,7 +28,7 @@ public class Test_ROZ extends SetEnv {
     private static final String search2="Gigabyte P35K (9WP35K000-UA-A-001)";
 
    // Lokators
-    private static final String notebooks = "/html/body/header/div[3]/div/div/table/tbody/tr/td/div/a";
+  //  private static final String notebooks = "/html/body/header/div[3]/div/div/table/tbody/tr/td/div/a";
     private static final String search_field = "header-search-input-text";
     private static final String type ="/html/body/div[1]/div[3]/div/div[1]/div/div/div[2]/div/div[2]/a";
     private static final String add_compare ="/html/body/div[1]/div[3]/div/div[1]/div/div/div[3]/div/div[1]/div[3]/a";
@@ -78,8 +80,8 @@ public class Test_ROZ extends SetEnv {
         search(search2);
         driver.findElement(By.xpath(add_compare)).click();
 
-       WebElement sort_all = (new WebDriverWait(driver, 20))
-               .until(ExpectedConditions.elementToBeClickable(By.xpath(compare)));
+       WebElement sort_all = (new WebDriverWait(driver, 20)).
+               until(ExpectedConditions.elementToBeClickable(By.xpath(compare)));
        driver.findElement(By.xpath(compare)).click();
     }
 
