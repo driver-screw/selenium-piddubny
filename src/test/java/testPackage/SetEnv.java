@@ -25,7 +25,7 @@ public class SetEnv {
     @BeforeSuite
     public void Before(){
         driver = new FirefoxDriver();
-       // driver.get("http://rozetka.com.ua/");
+        //driver.get(url);
         driver.manage().window().maximize();
      //   driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
     }

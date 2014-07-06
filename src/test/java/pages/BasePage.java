@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
  */
 abstract public class BasePage {
     protected String url="http://rozetka.com.ua/";
-    protected WebDriver  driver;
+    public WebDriver  driver;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;

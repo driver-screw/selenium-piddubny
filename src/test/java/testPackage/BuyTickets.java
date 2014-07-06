@@ -13,7 +13,8 @@ public class BuyTickets extends SetEnv {
     @Test
     public void buy2infantTickets(){
         TicketsPage page= new TicketsPage(driver);
-        page.buyTickets(1,1,2);
+        page.Open();
+        page.buyTickets(0,0,2);
         Assert.assertTrue(page.isError());
     }
 }
