@@ -58,6 +58,7 @@ public class ToComparePage extends BasePage {
         WebElement sort_all = (new WebDriverWait(driver, 20)).
                 until(ExpectedConditions.elementToBeClickable(add_compare));
         driver.findElement(add_compare).click();
+        System.out.println("I hope its click on THE BUTTON");
     }
 
     public void go_to_compare(){
@@ -85,7 +86,7 @@ public class ToComparePage extends BasePage {
     public void is_diff(){
         int i=1;
         do {
-
+            //Do with HashMAP!!!!!!
             try {
                 String S1 = driver.findElement(By.xpath(String.format(table, i, 2))).getText();
                 String S2 = driver.findElement(By.xpath(String.format(table, i, 3))).getText();
