@@ -37,4 +37,11 @@ public class Test_ROZ extends SetEnv {
 
     }
 
+    @Test (dependsOnMethods = {"add_to_compare"})
+    public void difference(){
+        ToComparePage page = new ToComparePage(driver);
+        page.diff_only();
+        page.is_diff();
+    }
+
 }

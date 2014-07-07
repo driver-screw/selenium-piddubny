@@ -20,7 +20,8 @@ public class ToComparePage extends BasePage {
     private static final By add_compare =By.xpath("//div[@class='g-i-list-compare']/a[@class='xhr lightblue']");
     private static final By compare = By.xpath("//div[@class='g-i-list-compare']/a[@class='lightblue underline']");
     private static final String check = "//table/thead/tr/td[%d]";
-
+    private static final By diff = By.xpath("//div[@id='compare-menu']/ul[@class='menu-sort-filter']/li[2]");
+    private static final String table = "(//div[@class='scroll']/table/tbody/tr[@class='different' or @class='different bg-color'])[%d]/td[%d]";
     public ToComparePage(WebDriver driver) {
         super(driver);
 
@@ -66,16 +67,37 @@ public class ToComparePage extends BasePage {
     }
 
     public void isCompareWorks(int n){
-    boolean presence;
-    try {
-        driver.findElement(By.xpath(String.format(check, n + 1)));
-        presence=true;
+         boolean presence;
+        try {
+            driver.findElement(By.xpath(String.format(check, n + 1)));
+            presence=true;
+        }
+        catch (NoSuchElementException e){
+            presence=false;
+     }
+        Assert.assertEquals(presence,true);
     }
-    catch (NoSuchElementException e){
-        presence=false;
+    public void diff_only(){
+        WebElement sort_all = (new WebDriverWait(driver, 20)).
+                until(ExpectedConditions.elementToBeClickable(diff));
+        driver.findElement(diff).click();
     }
+    public void is_diff(){
+        int i=1;
+        do {
 
-    Assert.assertEquals(presence,true);
+            try {
+                String S1 = driver.findElement(By.xpath(String.format(table, i, 2))).getText();
+                String S2 = driver.findElement(By.xpath(String.format(table, i, 3))).getText();
+                Assert.assertNotEquals(S1, S2);
+                System.out.println("Check " + i + " string. '" + driver.findElement(By.xpath(String.format(table, i, 1))).getText() + "'");
+                System.out.println(S1 + "\n" + S2);
+            } catch (NoSuchElementException e) {
+                System.out.println("You all will CAPUT! Nothing find on " + i + " string.\nAnd this is cyrillic check: раз два три");
+            }
+        i++;
+        }
+        while (driver.findElements(By.xpath(String.format(table, i, 2))).size()>0);
 
     }
 }
