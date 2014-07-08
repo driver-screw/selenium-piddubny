@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+
 /**
  * Created by Анатолий on 06.07.2014.
  */
@@ -58,6 +59,7 @@ public class ToComparePage extends BasePage {
         WebElement sort_all = (new WebDriverWait(driver, 20)).
                 until(ExpectedConditions.elementToBeClickable(add_compare));
         driver.findElement(add_compare).click();
+
     }
 
     public void go_to_compare(){
