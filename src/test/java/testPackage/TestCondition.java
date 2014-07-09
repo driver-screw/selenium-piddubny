@@ -16,6 +16,9 @@ import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
+import selenium.WebDriverFactory;
+import utils.PropertyLoader;
+
 import java.util.concurrent.TimeUnit;
 
 public class TestCondition {
@@ -24,7 +27,7 @@ public class TestCondition {
 
     @BeforeSuite
     public void Before(){
-        driver = new FirefoxDriver();
+        driver = WebDriverFactory.initDriver(PropertyLoader.loadProperty("browser.name"));
         //driver.get(url);
         driver.manage().window().maximize();
      //   driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
