@@ -18,7 +18,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
-public class SetEnv {
+public class TestCondition {
 
     public static WebDriver driver;
 

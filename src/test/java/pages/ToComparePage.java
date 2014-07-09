@@ -1,15 +1,16 @@
 package pages;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.lang.reflect.Array;
+import java.util.*;
 
-/**
- * Created by Анатолий on 06.07.2014.
- */
+
 public class ToComparePage extends BasePage {
     // Search sequence
     private static final String search1="Lenovo IdeaPad Y510p (59-407121)";
@@ -22,17 +23,14 @@ public class ToComparePage extends BasePage {
     private static final By compare = By.xpath("//div[@class='g-i-list-compare']/a[@class='lightblue underline']");
     private static final String check = "//table/thead/tr/td[%d]";
     private static final By diff = By.xpath("//div[@id='compare-menu']/ul[@class='menu-sort-filter']/li[2]");
-    private static final String table = "(//div[@class='scroll']/table/tbody/tr[@class='different' or @class='different bg-color'])[%d]/td[%d]";
+    private static final String difference_table = "(//div[@class='scroll']/table/tbody/tr[@class='different' or @class='different bg-color'])[%d]/td[%d]";
+    private static final String compare_table = "(//div[@class='scroll']/table/tbody/tr)[%d]/td[%d]";
     public ToComparePage(WebDriver driver) {
         super(driver);
 
     }
 
     public void clean_search_field(){
-//        driver.findElement(By.className(search_field)).click();
-//        Actions builder = new Actions(driver);
-//        builder.sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"),Keys.DELETE);
-//        builder.perform();
           driver.findElement(search_field).clear();
     }
 
@@ -51,15 +49,16 @@ public class ToComparePage extends BasePage {
         else return "0";
     }
 
-    public void isSameType(String product_type1, String product_type2){
-        Assert.assertEquals(product_type1, product_type2);
+    public boolean isSameType(String product_type1, String product_type2){
+       return (product_type1.equals(product_type2));
+
     }
 
     public void add_compare(){
         WebElement sort_all = (new WebDriverWait(driver, 20)).
                 until(ExpectedConditions.elementToBeClickable(add_compare));
         driver.findElement(add_compare).click();
-
+        System.out.println("I hope its click on THE BUTTON");
     }
 
     public void go_to_compare(){
@@ -68,38 +67,67 @@ public class ToComparePage extends BasePage {
         driver.findElement(compare).click();
     }
 
-    public void isCompareWorks(int n){
-         boolean presence;
+    public boolean isCompareWorks(int n){
         try {
             driver.findElement(By.xpath(String.format(check, n + 1)));
-            presence=true;
+            return true;
         }
         catch (NoSuchElementException e){
-            presence=false;
-     }
-        Assert.assertEquals(presence,true);
+            return false;
+        }
     }
     public void diff_only(){
         WebElement sort_all = (new WebDriverWait(driver, 20)).
                 until(ExpectedConditions.elementToBeClickable(diff));
         driver.findElement(diff).click();
     }
-    public void is_diff(){
+
+    public Map getInfoMap(int number_of_product){
         int i=1;
+        Map prodmap = new HashMap < String, String>();
         do {
 
             try {
-                String S1 = driver.findElement(By.xpath(String.format(table, i, 2))).getText();
-                String S2 = driver.findElement(By.xpath(String.format(table, i, 3))).getText();
-                Assert.assertNotEquals(S1, S2);
-                System.out.println("Check " + i + " string. '" + driver.findElement(By.xpath(String.format(table, i, 1))).getText() + "'");
-                System.out.println(S1 + "\n" + S2);
+                String S1 = driver.findElement(By.xpath(String.format(compare_table, i, 1))).getText();
+                String S2 = driver.findElement(By.xpath(String.format(compare_table, i, number_of_product+1))).getText();
+                prodmap.put(S1,S2);
+                System.out.println("Check " + i + " string. '" + driver.findElement(By.xpath(String.format(compare_table, i, 1))).getText() + "'");
+                System.out.println("\n"+ S2);
+            } catch (NoSuchElementException e) {
+                System.out.println("You all will CAPUT! Nothing find on " + i + " string.\nAnd this is cyrillic check: раз два три");
+            }
+            i++;
+        }
+        while (driver.findElements(By.xpath(String.format(compare_table, i, 1))).size()>0);
+        return prodmap;
+    }
+
+
+    public Map getDifferenceMap(int number_of_product){
+        int i=1;
+        Map diffprodmap = new HashMap < String, String>();
+        do {
+            try {
+                String S1 = driver.findElement(By.xpath(String.format(difference_table, i, 1))).getText();
+                String S2 = driver.findElement(By.xpath(String.format(difference_table, i, number_of_product+1))).getText();
+                diffprodmap.put(S1,S2);
+                System.out.println("Check " + i + " string. '" + driver.findElement(By.xpath(String.format(difference_table, i, number_of_product+1))).getText() + "'");
+                System.out.println("\n" + S2);
             } catch (NoSuchElementException e) {
                 System.out.println("You all will CAPUT! Nothing find on " + i + " string.\nAnd this is cyrillic check: раз два три");
             }
         i++;
         }
-        while (driver.findElements(By.xpath(String.format(table, i, 2))).size()>0);
+        while (driver.findElements(By.xpath(String.format(difference_table, i, 1))).size()>0);
+        return diffprodmap;
+    }
+    //Does anyone know how to do this block???
+    public void getKeyWithDiffValue(Map map1, Map map2){
 
+        for( Iterator<String> it = map1.keySet().iterator(); it.hasNext(); ){
+            if (!map2.equals(it.next()) ) {
+               //Object S1[1]=s1;
+            }
+        }
     }
 }
