@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class PropertyLoader {
-    private static final String PROPERTY_FILE = "C:/Selenium/selenium-piddubny/src/test/resources/application.properties";
+    private static final String PROPERTY_FILE = "/application.properties";
 
     public static String loadProperty(String name)
     {

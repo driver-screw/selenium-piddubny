@@ -4,22 +4,14 @@ package testPackage;
  * Created by Анатолий on 03.07.2014.
  */
 
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
 import selenium.WebDriverFactory;
 import utils.PropertyLoader;
 
-import java.util.concurrent.TimeUnit;
+
 
 public class TestCondition {
 
@@ -27,7 +19,10 @@ public class TestCondition {
 
     @BeforeSuite
     public void Before(){
-        driver = WebDriverFactory.initDriver(PropertyLoader.loadProperty("browser.name"));
+        //PropertyLoader.loadProperty("browser.name")
+        //driver = WebDriverFactory.initDriver("chrome");
+
+        System.out.println(PropertyLoader.loadProperty("browser.name"));
         //driver.get(url);
         driver.manage().window().maximize();
      //   driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);

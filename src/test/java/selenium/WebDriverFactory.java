@@ -16,14 +16,14 @@ public class WebDriverFactory {
 
     public static final String CHROME = "chrome";
     public static final String FIREFOX = "firefox";
-    public static WebDriver initDriver(String broserName)
+    public static WebDriver initDriver(String browserName)
     {
         WebDriver driver = null;
-        if (broserName.equals(FIREFOX))
+        if (browserName.equals(FIREFOX))
         {
             driver = new FirefoxDriver();
         } else
-        if (broserName.equals(CHROME))
+        if (browserName.equals(CHROME))
         {
             File file = new File(PropertyLoader.loadProperty("selenium.chrome.driver.path"));
             System.setProperty("webdriver.chrome.driver",file.getAbsolutePath());
