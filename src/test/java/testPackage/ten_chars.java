@@ -1,6 +1,7 @@
 package testPackage;
 
-import junit.framework.Assert;
+
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -24,7 +25,7 @@ public class ten_chars {
     public void checkTenChar(String S){
        // String S="1234567890";
         System.out.println(S);
-        Assert.assertEquals(10,S.length());
+        Assert.assertEquals(10, S.length());
     }
 
 }

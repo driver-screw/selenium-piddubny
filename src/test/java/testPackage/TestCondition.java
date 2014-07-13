@@ -20,7 +20,7 @@ public class TestCondition {
     @BeforeSuite
     public void Before(){
         //PropertyLoader.loadProperty("browser.name")
-        //driver = WebDriverFactory.initDriver("chrome");
+        driver = WebDriverFactory.initDriver(PropertyLoader.loadProperty("browser.name"));
 
         System.out.println(PropertyLoader.loadProperty("browser.name"));
         //driver.get(url);
