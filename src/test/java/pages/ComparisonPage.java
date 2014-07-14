@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import selenium.WebDriverWrapper;
 import utils.Log4Test;
 
 import java.lang.reflect.Array;
@@ -26,7 +27,7 @@ public class ComparisonPage extends BasePage {
     private static final By diff = By.xpath("//div[@id='compare-menu']/ul[@class='menu-sort-filter']/li[2]");
     private static final String check = "//table/thead/tr/td[%d]";
 
-    public ComparisonPage(WebDriver driver) {
+    public ComparisonPage(WebDriverWrapper driver) {
         super(driver);
     }
 
@@ -54,7 +55,7 @@ public class ComparisonPage extends BasePage {
             driver.findElement(By.xpath(String.format(check, n + 1)));
             return true;
         } catch (NoSuchElementException e) {
-            Log4Test.error("There are no "+n+"-nd product in compare table.");
+            Log4Test.error("There are no " + n + "-nd product in compare table.");
             return false;
         }
     }

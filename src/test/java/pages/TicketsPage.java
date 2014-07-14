@@ -1,11 +1,10 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.BasePage;
+import selenium.WebDriverWrapper;
 import utils.Log4Test;
 
 
@@ -23,14 +22,11 @@ public class TicketsPage extends BasePage {
     private static final By findBtn = By.id("start_search");
 
 
-    public TicketsPage(WebDriver driver) {
+    public TicketsPage(WebDriverWrapper driver) {
         super(driver);
         url = "http://rozetka.com.ua/travel/IEV/MOW/";
 
     }
-
-
-
 
     public void buyTickets(int adults,int childrens, int infants){
         Log4Test.info("Buy tickets for "+adults+" adults, "+childrens+" childrens, "+infants+" infants.");

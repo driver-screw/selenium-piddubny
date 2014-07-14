@@ -2,7 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+import selenium.WebDriverWrapper;
 import utils.Log4Test;
 
 abstract public class BasePage {
@@ -15,9 +15,9 @@ abstract public class BasePage {
     private static final By search_field = By.className("header-search-input-text");
     private static final By type = By.xpath("//div[@class='title']/a");
 
-    public WebDriver  driver;
+    public WebDriverWrapper driver;
 
-    public BasePage(WebDriver driver) {
+    public BasePage(WebDriverWrapper driver) {
         this.driver = driver;
     }
 

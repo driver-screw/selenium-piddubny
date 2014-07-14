@@ -17,7 +17,7 @@ import utils.PropertyLoader;
 
 public class TestCondition {
 
-    public static WebDriver driver;
+    public static WebDriverWrapper driver;
 
     @BeforeSuite
     public void Before(){

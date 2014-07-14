@@ -1,5 +1,6 @@
 package selenium;
 
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -16,7 +17,7 @@ public class WebDriverFactory {
 
     public static final String CHROME = "chrome";
     public static final String FIREFOX = "firefox";
-    public static WebDriver initDriver(String browserName)
+    public static WebDriverWrapper initDriver(String browserName)
     {
         WebDriver driver = null;
         if (browserName.equals(FIREFOX))
@@ -30,6 +31,6 @@ public class WebDriverFactory {
             driver = new ChromeDriver();
         } else
             Assert.fail(Log4Test.error("WebDriver not defined"));
-        return driver;
+        return new WebDriverWrapper(driver);
     }
 }

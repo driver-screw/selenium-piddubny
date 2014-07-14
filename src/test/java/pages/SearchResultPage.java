@@ -6,6 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import selenium.WebDriverWrapper;
 import utils.Log4Test;
 
 import java.lang.reflect.Array;
@@ -16,7 +17,7 @@ public class SearchResultPage extends BasePage {
     private static final By add_compare =By.xpath("//div[@class='g-i-list-compare']/a[@class='xhr lightblue']");
     private static final By compare = By.xpath("//div[@class='g-i-list-compare']/a[@class='lightblue underline']");
 
-    public SearchResultPage(WebDriver driver) {
+    public SearchResultPage(WebDriverWrapper driver) {
         super(driver);
     }
 

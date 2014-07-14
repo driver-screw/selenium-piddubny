@@ -22,22 +22,22 @@ public class WebDriverWrapper implements WebDriver {
 
     @Override
     public void get(String s) {
-
+        driver.get(s);
     }
 
     @Override
     public String getCurrentUrl() {
-        return null;
+        return driver.getCurrentUrl();
     }
 
     @Override
     public String getTitle() {
-        return null;
+        return driver.getTitle();
     }
 
     @Override
     public List<WebElement> findElements(By by) {
-        return null;
+        return driver.findElements(by);
     }
 
     @Override
@@ -49,7 +49,7 @@ public class WebDriverWrapper implements WebDriver {
 
     @Override
     public String getPageSource() {
-        return null;
+        return driver.getPageSource();
     }
 
     @Override
