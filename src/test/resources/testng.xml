@@ -4,7 +4,11 @@
 
     <test name="SmokeTest">
         <classes>
-            <class name="testPackage.Test_ROZ" />
+            <class name="courseProjectTests.BuyTicketsToInfantsTest" />
+            <class name="courseProjectTests.Find2ProductsTest" />
+            <class name="courseProjectTests.Find_n_AddToCompareTest" />
+            <class name="courseProjectTests.CompareDifferenceTest" />
+            <!--<class name="courseProjectTests.BuyTicketsToInfantsTest" />-->
         </classes>
     </test>
 </suite>

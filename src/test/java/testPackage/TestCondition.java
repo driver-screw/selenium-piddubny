@@ -9,6 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import selenium.WebDriverFactory;
+import selenium.WebDriverWrapper;
+import utils.Log4Test;
 import utils.PropertyLoader;
 
 
@@ -19,19 +21,17 @@ public class TestCondition {
 
     @BeforeSuite
     public void Before(){
-        //PropertyLoader.loadProperty("browser.name")
         driver = WebDriverFactory.initDriver(PropertyLoader.loadProperty("browser.name"));
-
         System.out.println(PropertyLoader.loadProperty("browser.name"));
-        //driver.get(url);
         driver.manage().window().maximize();
-     //   driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+        Log4Test.info("\nStart Suite");
     }
 
     @AfterSuite
         public void After(){
         if (driver!=null){
         driver.quit();
+        Log4Test.info("\nEnd Suite");
      }
     }
 }

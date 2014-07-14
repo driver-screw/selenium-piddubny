@@ -28,8 +28,6 @@ public class Log4Test {
 
     public static String fail (String message)
     {
-//        LOGGER.error(String.format(ERROR_LOG, message));
-//        Reporter.log(String.format(ERROR_LOG, message));
         return String.format(ERROR_LOG, message);
     }
 

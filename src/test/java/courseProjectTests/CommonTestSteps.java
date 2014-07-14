@@ -1,4 +1,4 @@
-package testPackage;
+package courseProjectTests;
 
 import org.openqa.selenium.WebDriver;
 import pages.BasePage;

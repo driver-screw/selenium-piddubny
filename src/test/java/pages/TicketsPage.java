@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.BasePage;
-
+import utils.Log4Test;
 
 
 /**
@@ -33,7 +33,7 @@ public class TicketsPage extends BasePage {
 
 
     public void buyTickets(int adults,int childrens, int infants){
-
+        Log4Test.info("Buy tickets for "+adults+" adults, "+childrens+" childrens, "+infants+" infants.");
 
         WebElement wait = (new WebDriverWait(driver, 20)).
                 until(ExpectedConditions.elementToBeClickable(By.xpath(String.format(adultTicketsLocator,5))));
@@ -64,6 +64,7 @@ public class TicketsPage extends BasePage {
     }
 
     public boolean isError(){
+        Log4Test.info("Check for error message appearance.");
 
         return driver.findElements(errorPopup).size()>0;
     }
